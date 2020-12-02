@@ -1,0 +1,25 @@
+lenguage: node_js
+cache:
+  directories:
+    - node_modules
+    - ~/.npm
+node_js:
+  - '12'
+git:
+  depth: 3
+script:
+  - yarn build 
+notifications:
+  email:
+    recipients:aldntmi@gmail.com
+      - 
+deploy:
+  provider: pages
+  skip-cleanup: true
+  keep-history: true
+  github-token: $Github-token
+  local-dir: dist/
+  target-branch: gh-page
+  commit-message: 'Deploy del proyecto'
+  on:
+    branch: master 
